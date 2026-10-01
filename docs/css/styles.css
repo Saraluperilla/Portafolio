@@ -198,6 +198,19 @@ body {
   color: var(--color-text);
 }
 
+/* ---------- Books ---------- */
+.books__list {
+  display: grid;
+  gap: 6px;
+  font-size: var(--size-lead);
+}
+
+/* ---------- Academic disclaimer ---------- */
+.disclaimer {
+  max-width: var(--max-text);
+  color: var(--color-muted);
+}
+
 /* ---------- Socials ---------- */
 .socials__list {
   display: flex;

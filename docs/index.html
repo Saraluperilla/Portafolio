@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[Tu nombre] — Portfolio</title>
-  <meta name="description" content="[Tu propuesta en una frase]">
+  <title>Ruvén Afanador — Portafolio (proyecto académico)</title>
+  <meta name="description" content="Rediseño no oficial del portafolio del fotógrafo Ruvén Afanador. Proyecto académico de Creación Digital.">
 
   <!-- Preview when the link is shared (WhatsApp, LinkedIn, etc.) -->
-  <meta property="og:title" content="[Tu nombre] — Portfolio">
-  <meta property="og:description" content="[Tu propuesta en una frase]">
+  <meta property="og:title" content="Ruvén Afanador — Portafolio (proyecto académico)">
+  <meta property="og:description" content="Rediseño no oficial del portafolio del fotógrafo Ruvén Afanador.">
   <meta property="og:image" content="assets/work/project-01.jpg">
   <meta property="og:type" content="website">
 
@@ -27,20 +27,23 @@
   <nav class="nav" aria-label="Main">
     <a class="label" href="#top">Index</a>
     <a class="label" href="#work">Work</a>
-    <a class="label" href="#ethos">Ethos</a>
+    <a class="label" href="#books">Books</a>
     <a class="label" href="#about">About</a>
-    <a class="label" href="#socials">Socials</a>
+    <a class="label" href="#socials">Links</a>
   </nav>
 
   <main>
     <!-- 1. Header -->
     <header id="top" class="block header">
       <p class="label" data-today>[Fecha de hoy]</p>
-      <h1 class="title">[Tu nombre]</h1>
-      <p class="lead">[Tu propuesta: qué haces y para quién, en una o dos líneas.]</p>
-      <button class="pill label" type="button" data-copy-email="tucorreo@ejemplo.com">
-        tucorreo@ejemplo.com
-      </button>
+      <h1 class="title">Ruvén Afanador</h1>
+      <p class="lead">Fotógrafo de retrato y moda. Nacido en Bucaramanga, Colombia; vive y trabaja en Nueva York.</p>
+      <a class="pill label" href="https://ruvenafanador.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">
+        Official site ↗
+      </a>
+      <p class="label disclaimer">
+        Proyecto académico · Rediseño no oficial · Fotografías © Ruvén Afanador
+      </p>
     </header>
 
     <!-- 2. Work strip -->
@@ -51,39 +54,55 @@
       <button class="pill label" type="button" data-open-grid>Grid view</button>
     </section>
 
-    <!-- 3. Ethos -->
-    <section id="ethos" class="block text-block" aria-labelledby="ethos-title">
-      <h2 id="ethos-title" class="label">Ethos</h2>
-      <p class="lead">[Tus principios de trabajo en una frase fuerte.]</p>
-      <div class="more" id="ethos-more" hidden>
-        <p>[Desarrollo de tus principios: cómo trabajas, qué te importa en un proyecto.]</p>
+    <!-- 3. Books -->
+    <section id="books" class="block text-block" aria-labelledby="books-title">
+      <h2 id="books-title" class="label">Books</h2>
+      <p class="lead">Seis libros publicados, entre ellos <em>Torero</em>, su serie de retratos en blanco y negro de matadores.</p>
+      <div class="more" id="books-more" hidden>
+        <ul class="books__list">
+          <li><em>Torero</em></li>
+          <li><em>Sombra</em></li>
+          <li><em>Mil Besos</em></li>
+          <li><em>Ángel Gitano</em></li>
+          <li><em>Yo seré tu espejo</em></li>
+          <li><em>Hijas del Agua</em></li>
+        </ul>
       </div>
-      <button class="pill label" type="button" aria-expanded="false" aria-controls="ethos-more" data-read-more>Read more</button>
+      <button class="pill label" type="button" aria-expanded="false" aria-controls="books-more" data-read-more>Read more</button>
     </section>
 
     <!-- 4. About (dark block) -->
     <section id="about" class="block text-block about" aria-labelledby="about-title">
       <h2 id="about-title" class="label">About</h2>
-      <p class="lead">[Quién eres en una frase: formación, enfoque, de dónde eres.]</p>
+      <p class="lead">De Bucaramanga a Michigan, Washington D.C., Milán y Nueva York.</p>
       <div class="more" id="about-more" hidden>
-        <p>[Más sobre ti: estudios en Creación Digital, herramientas, experiencia.]</p>
+        <p>
+          Se mudó con su familia a Michigan a los 14 años y comenzó su carrera como fotógrafo
+          de moda en Washington D.C. En 1987 se trasladó a Milán, donde fotografió modelos en
+          calles, callejones y escalinatas de iglesias. En 1990 regresó a Estados Unidos y empezó
+          a publicar en <em>Vogue</em>, <em>Vanity Fair</em>, <em>Rolling Stone</em> y
+          <em>The New York Times</em>.
+        </p>
       </div>
       <button class="pill label" type="button" aria-expanded="false" aria-controls="about-more" data-read-more>Read more</button>
     </section>
 
-    <!-- 5. Socials -->
+    <!-- 5. Links -->
     <footer id="socials" class="block socials" aria-labelledby="socials-title">
-      <h2 id="socials-title" class="label">Socials</h2>
+      <h2 id="socials-title" class="label">Links</h2>
       <ul class="socials__list">
-        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="#" target="_blank" rel="noopener">Behance</a></li>
-        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://ruvenafanador.com" target="_blank" rel="noopener">Official site</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Ruv%C3%A9n_Afanador" target="_blank" rel="noopener">Wikipedia</a></li>
+        <li><a href="https://models.com/people/ruven-afanador" target="_blank" rel="noopener">Models.com</a></li>
       </ul>
+      <p class="label disclaimer">
+        Proyecto académico de Creación Digital. No está afiliado a Ruvén Afanador.
+        Todas las fotografías pertenecen a sus autores y se usan solo con fines educativos.
+      </p>
     </footer>
   </main>
 
-  <!-- Grid view overlay (behavior added in step 3) -->
+  <!-- Grid view overlay -->
   <div class="grid-overlay" role="dialog" aria-modal="true" aria-label="All work" hidden data-grid>
     <button class="pill label grid-overlay__close" type="button" data-close-grid>Close</button>
     <ul class="grid" data-grid-list></ul>
