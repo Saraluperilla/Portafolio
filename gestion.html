@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Gestión de proyectos</title>
+
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=sentient@400,500&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .admin {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: var(--space-l) 16px;
+      display: grid;
+      gap: var(--space-l);
+    }
+
+    .admin__header,
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-s);
+    }
+
+    .admin__header { justify-content: space-between; }
+
+    .status { color: var(--color-muted); }
+    .status--dirty { color: #b00020; }
+
+    /* ---------- Form ---------- */
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: var(--radius);
+    }
+
+    .form__title,
+    .field--wide,
+    .form__actions { grid-column: 1 / -1; }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field input,
+    .field select {
+      font: inherit;
+      padding: 10px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      background: var(--color-bg);
+    }
+
+    .field input[aria-invalid="true"] { border-color: #b00020; }
+
+    .hint,
+    .error {
+      font-family: var(--font-mono);
+      font-size: var(--size-label);
+    }
+
+    .hint { color: var(--color-muted); }
+    .error { color: #b00020; min-height: 1em; }
+
+    .preview {
+      width: 120px;
+      aspect-ratio: 4 / 5;
+      border-radius: 12px;
+      background: var(--color-card);
+      overflow: hidden;
+    }
+
+    .preview img,
+    .preview video,
+    .item__thumb img,
+    .item__thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .form__actions {
+      display: flex;
+      gap: var(--space-s);
+    }
+
+    .pill--solid {
+      background: var(--color-text);
+      color: var(--color-bg);
+    }
+
+    /* ---------- List ---------- */
+    .list {
+      display: grid;
+      gap: var(--space-s);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      align-items: center;
+      gap: var(--space-m);
+      padding: var(--space-s);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 16px;
+    }
+
+    .item--editing { border-color: var(--color-text); }
+
+    .item__thumb {
+      width: 64px;
+      aspect-ratio: 4 / 5;
+      border-radius: 8px;
+      background: var(--color-card);
+      overflow: hidden;
+    }
+
+    .item__meta { min-width: 0; }
+
+    .item__meta p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .item__actions .pill { padding: 6px 12px; }
+    .item__actions .pill:disabled { opacity: 0.3; cursor: default; }
+
+    @media (max-width: 640px) {
+      .form { grid-template-columns: 1fr; }
+      .item { grid-template-columns: 48px 1fr; }
+      .item__thumb { width: 48px; }
+      .item__actions { grid-column: 1 / -1; }
+    }
+  </style>
+
+  <script src="js/gestion.js" defer></script>
+</head>
+<body>
+  <main class="admin">
+
+    <header class="admin__header">
+      <div>
+        <p class="label">Admin</p>
+        <h1 class="title">Projects</h1>
+      </div>
+      <div class="toolbar">
+        <button class="pill label" type="button" data-open-file>Open file…</button>
+        <button class="pill label pill--solid" type="button" data-save>Save</button>
+        <button class="pill label" type="button" data-download>Download JSON</button>
+        <a class="pill label" href="index.html" style="color: inherit; text-decoration: none;">View site</a>
+      </div>
+      <p class="label status" role="status" data-status>Loading…</p>
+    </header>
+
+    <!-- Add / edit form -->
+    <form class="form" data-form novalidate>
+      <h2 class="label form__title" data-form-title>New project</h2>
+
+      <label class="field">
+        <span class="label">Title *</span>
+        <input name="title" type="text" required>
+        <span class="error" data-error-for="title"></span>
+      </label>
+
+      <label class="field">
+        <span class="label">Year</span>
+        <input name="year" type="text" inputmode="numeric" placeholder="2026">
+        <span class="error" data-error-for="year"></span>
+      </label>
+
+      <label class="field">
+        <span class="label">Type</span>
+        <select name="type">
+          <option value="image">image</option>
+          <option value="video">video</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="label">Pick file (fills the path)</span>
+        <input name="picker" type="file" accept="image/*,video/*">
+        <span class="hint">Copy the file into assets/work/ yourself.</span>
+      </label>
+
+      <label class="field field--wide">
+        <span class="label">Path *</span>
+        <input name="src" type="text" required placeholder="assets/work/project-07.jpg">
+        <span class="error" data-error-for="src"></span>
+      </label>
+
+      <label class="field field--wide">
+        <span class="label">Alt text * (describe the image)</span>
+        <input name="alt" type="text" required>
+        <span class="error" data-error-for="alt"></span>
+      </label>
+
+      <label class="field field--wide">
+        <span class="label">Link</span>
+        <input name="link" type="url" placeholder="https://…">
+        <span class="error" data-error-for="link"></span>
+      </label>
+
+      <div class="field field--wide">
+        <span class="label">Preview</span>
+        <div class="preview" data-preview></div>
+      </div>
+
+      <div class="form__actions">
+        <button class="pill label pill--solid" type="submit" data-submit>Add project</button>
+        <button class="pill label" type="button" data-cancel hidden>Cancel</button>
+      </div>
+    </form>
+
+    <!-- Project list -->
+    <section>
+      <h2 class="label" data-count>0 projects</h2>
+      <ul class="list" data-list></ul>
+    </section>
+
+  </main>
+</body>
+</html>

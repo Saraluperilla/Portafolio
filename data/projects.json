@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Portrait 01",
+    "year": "",
+    "type": "image",
+    "src": "assets/work/project-01.jpg",
+    "alt": "Portrait of a woman framed by large red fabric petals shaped like a rose",
+    "link": ""
+  },
+  {
+    "title": "Portrait 02",
+    "year": "",
+    "type": "image",
+    "src": "assets/work/project-02.png",
+    "alt": "Black and white portrait of a man resting his chin on his hand",
+    "link": ""
+  },
+  {
+    "title": "Portrait 03",
+    "year": "",
+    "type": "image",
+    "src": "assets/work/project-03.png",
+    "alt": "Portrait of a bearded man in period clothing seated at a wooden table",
+    "link": ""
+  },
+  {
+    "title": "Portrait 04",
+    "year": "",
+    "type": "image",
+    "src": "assets/work/project-04.png",
+    "alt": "Man in a bicorne hat and military coat seated on a red chair against a weathered wall",
+    "link": ""
+  },
+  {
+    "title": "Portrait 05",
+    "year": "",
+    "type": "image",
+    "src": "assets/work/project-05.png",
+    "alt": "Woman in a white embellished dress reclining on a table holding two gramophone trophies",
+    "link": ""
+  },
+  {
+    "title": "Portrait 06",
+    "year": "",
+    "type": "image",
+    "src": "assets/work/project-06.png",
+    "alt": "Man in black seated on the floor of an industrial space holding an electric guitar",
+    "link": ""
+  }
+]

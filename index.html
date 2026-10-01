@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Tu nombre] — Portfolio</title>
+  <meta name="description" content="[Tu propuesta en una frase]">
+
+  <!-- Preview when the link is shared (WhatsApp, LinkedIn, etc.) -->
+  <meta property="og:title" content="[Tu nombre] — Portfolio">
+  <meta property="og:description" content="[Tu propuesta en una frase]">
+  <meta property="og:image" content="assets/work/project-01.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40'/></svg>">
+
+  <!-- Sentient (serif) from Fontshare -->
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=sentient@400,500&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Minimal fixed nav: fixes the "no way to jump between blocks" limitation -->
+  <nav class="nav" aria-label="Main">
+    <a class="label" href="#top">Index</a>
+    <a class="label" href="#work">Work</a>
+    <a class="label" href="#ethos">Ethos</a>
+    <a class="label" href="#about">About</a>
+    <a class="label" href="#socials">Socials</a>
+  </nav>
+
+  <main>
+    <!-- 1. Header -->
+    <header id="top" class="block header">
+      <p class="label" data-today>[Fecha de hoy]</p>
+      <h1 class="title">[Tu nombre]</h1>
+      <p class="lead">[Tu propuesta: qué haces y para quién, en una o dos líneas.]</p>
+      <button class="pill label" type="button" data-copy-email="tucorreo@ejemplo.com">
+        tucorreo@ejemplo.com
+      </button>
+    </header>
+
+    <!-- 2. Work strip -->
+    <section id="work" class="block work" aria-labelledby="work-title">
+      <h2 id="work-title" class="visually-hidden">Work</h2>
+      <!-- Cards are rendered by js/main.js from data/projects.json -->
+      <ul class="strip" data-strip></ul>
+      <button class="pill label" type="button" data-open-grid>Grid view</button>
+    </section>
+
+    <!-- 3. Ethos -->
+    <section id="ethos" class="block text-block" aria-labelledby="ethos-title">
+      <h2 id="ethos-title" class="label">Ethos</h2>
+      <p class="lead">[Tus principios de trabajo en una frase fuerte.]</p>
+      <div class="more" id="ethos-more" hidden>
+        <p>[Desarrollo de tus principios: cómo trabajas, qué te importa en un proyecto.]</p>
+      </div>
+      <button class="pill label" type="button" aria-expanded="false" aria-controls="ethos-more" data-read-more>Read more</button>
+    </section>
+
+    <!-- 4. About (dark block) -->
+    <section id="about" class="block text-block about" aria-labelledby="about-title">
+      <h2 id="about-title" class="label">About</h2>
+      <p class="lead">[Quién eres en una frase: formación, enfoque, de dónde eres.]</p>
+      <div class="more" id="about-more" hidden>
+        <p>[Más sobre ti: estudios en Creación Digital, herramientas, experiencia.]</p>
+      </div>
+      <button class="pill label" type="button" aria-expanded="false" aria-controls="about-more" data-read-more>Read more</button>
+    </section>
+
+    <!-- 5. Socials -->
+    <footer id="socials" class="block socials" aria-labelledby="socials-title">
+      <h2 id="socials-title" class="label">Socials</h2>
+      <ul class="socials__list">
+        <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </footer>
+  </main>
+
+  <!-- Grid view overlay (behavior added in step 3) -->
+  <div class="grid-overlay" role="dialog" aria-modal="true" aria-label="All work" hidden data-grid>
+    <button class="pill label grid-overlay__close" type="button" data-close-grid>Close</button>
+    <ul class="grid" data-grid-list></ul>
+  </div>
+
+</body>
+</html>
